@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- Google Fonts: Poppins for trendy look -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="root/Font-Awesome/css/all.min.css">
+      <link rel="stylesheet" href="root/css/style.css">
+      <title>Neon Glass TODO</title>
+      <style>
+            /* Trendy animated gradient border for the main box */
+            body {
+                  background: linear-gradient(120deg, #0f2027 0%, #2c5364 100%);
+                  min-height: 100vh;
+                  overflow-x: hidden;
+            }
+            .todo-box {
+                  position: relative;
+                  z-index: 1;
+            }
+            .todo-box::before {
+                  content: "";
+                  position: absolute;
+                  inset: -4px;
+                  z-index: -1;
+                  border-radius: 28px;
+                  background: linear-gradient(120deg, #ff00cc, #00ffe7, #333399, #ff00cc);
+                  background-size: 300% 300%;
+                  animation: borderMove 6s linear infinite;
+                  filter: blur(8px) brightness(1.2);
+                  opacity: 0.7;
+            }
+            @keyframes borderMove {
+                  0% { background-position: 0% 50%; }
+                  50% { background-position: 100% 50%; }
+                  100% { background-position: 0% 50%; }
+            }
+            header {
+                  text-align: center;
+                  margin-top: 2.5rem;
+                  margin-bottom: 1.5rem;
+            }
+            .logo-glow {
+                  font-family: 'Poppins', Arial, sans-serif;
+                  font-size: 2.2rem;
+                  font-weight: 600;
+                  letter-spacing: 0.08em;
+                  color: #fff;
+                  text-shadow: 0 0 12px #00ffe7, 0 0 24px #ff00cc;
+                  background: linear-gradient(90deg, #ff00cc, #00ffe7, #333399);
+                  -webkit-background-clip: text;
+                  -webkit-text-fill-color: transparent;
+                  animation: glowText 2.5s infinite alternate;
+            }
+            @keyframes glowText {
+                  0% { text-shadow: 0 0 12px #00ffe7, 0 0 24px #ff00cc; }
+                  100% { text-shadow: 0 0 24px #ff00cc, 0 0 36px #00ffe7; }
+            }
+      </style>
+</head>
+<body>
+      <header>
+            <span class="logo-glow">✨ Neon Glass TODO ✨</span>
+      </header>
+      <div class="todo-box">
+            <form>
+                  <input type="text" class="todo-txt" id="todo-txt" placeholder="Type every task right here">
+                  <button type="submit" class="todo-btn" id="todo-btn">
+                        <i class="fas fa-plus-circle"></i>
+                  </button>
+            </form>
+            <input type="checkbox" name="check" id="check">
+            <span data-alert>There is no task until now!</span>
+            <section class="todo-container"></section>
+      </div>
+      <script src="root/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+* {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+      text-decoration: none;
+}
+
+body {
+      font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+      min-height: 100vh;
+      color: #fff;
+      letter-spacing: 0.03em;
+}
+
+html {
+      font-size: 22px;
+}
+
+:root {
+      --main-color: #00ffe7;
+      --gradient-color-1: #ff00cc;
+      --gradient-color-2: #333399;
+      --glass-bg: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.25);
+      --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+div.todo-box {
+      margin: 111px auto;
+      width: 600px;
+      min-height: 333px;
+      padding: 22px 32px;
+      border-radius: 24px;
+      background: var(--glass-bg);
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: box-shadow 0.3s;
+}
+
+div.todo-box:hover {
+      box-shadow: 0 12px 48px 0 rgba(0,255,231,0.15);
+}
+
+form {
+      float: left;
+      height: 2.5rem;
+      width: 22rem;
+      margin: 1rem .5rem .2rem .3rem;
+      position: relative;
+}
+
+form input {
+      width: inherit;
+      height: inherit;
+      display: block;
+      border-radius: 22px;
+      font-size: 1rem;
+      text-indent: 1rem;
+      border: 2px solid var(--main-color);
+      background: rgba(0,0,0,0.18);
+      color: #fff;
+      transition: border 0.3s, background 0.3s;
+      box-shadow: 0 2px 8px 0 rgba(0,255,231,0.08);
+}
+
+form input:focus {
+      outline: none;
+      border: 2px solid var(--gradient-color-1);
+      background: rgba(0,0,0,0.28);
+}
+
+form input::placeholder {
+      font-family: 'Poppins', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color: #b8b8ff;
+      opacity: 0.7;
+}
+
+form input ~ button {
+      appearance: none;
+      border: none;
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--gradient-color-1), var(--main-color));
+      border-radius: 0 22px 22px 0;
+      height: 100%;
+      width: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px 0 rgba(255,0,204,0.15);
+      transition: background 0.3s;
+}
+
+form input ~ button:hover {
+      background: linear-gradient(135deg, var(--main-color), var(--gradient-color-1));
+}
+
+form input ~ button i {
+      font-size: 2rem;
+      transition: transform 500ms cubic-bezier(.68,-0.55,.27,1.55);
+      color: #fff;
+      transform: rotate(0deg);
+      transform-origin: 50% 50%;
+      filter: drop-shadow(0 0 6px var(--main-color));
+}
+
+i.fa-check,
+i.fa-trash {
+      pointer-events: none;
+}
+
+form input ~ button i:hover {
+      transform: rotate(360deg) scale(1.2);
+}
+
+section {
+      width: 22rem;
+      margin: 1.5rem auto;
+}
+
+section div {
+      margin: 0.7rem 0;
+      width: 100%;
+      height: 2.5rem;
+      background: linear-gradient(90deg, var(--gradient-color-2), var(--gradient-color-1));
+      transition: all 300ms cubic-bezier(.68,-0.55,.27,1.55);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px 0 rgba(255,0,204,0.08);
+      display: flex;
+      align-items: center;
+      position: relative;
+}
+
+section div.drop {
+      transform: translateY(8rem) rotate(22deg) scale(0.9);
+      opacity: 0;
+}
+
+section div > button {
+      width: 12%;
+      height:100%;
+      appearance: none;
+      border-radius: 0;
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+}
+
+section div > button:first-of-type {
+      justify-content: flex-start;
+}
+
+section div > button:last-of-type {
+      justify-content: flex-end;
+}
+
+section div > button i {
+      font-size: 1.2rem;
+      color: #fff;
+      filter: drop-shadow(0 0 4px #ff00cc);
+      transition: color 0.2s, transform 0.2s;
+}
+
+section div > button:hover i {
+      color: var(--main-color);
+      transform: scale(1.2);
+}
+
+section div p {
+      width: 76%;
+      float: left;
+      padding: 0 1rem;
+      color: #fff;
+      line-height: 2.5rem;
+      text-align: center;
+      font-weight: 500;
+      text-shadow: 0 1px 8px #00000033;
+      letter-spacing: 0.04em;
+      font-size: 1.1rem;
+      transition: color 0.3s, text-shadow 0.3s;
+}
+
+section div p.completed {
+      text-decoration: 2px line-through #00ffe7;
+      color: #b8b8ff;
+      opacity: 0.7;
+      text-shadow: none;
+}
+
+span {
+      clear: both;
+      font-size: .8rem;
+      margin: 0.3rem 0 1rem 1rem;
+      display: block;
+      color: var(--main-color);
+      letter-spacing: 0.08em;
+      text-shadow: 0 1px 8px #00000033;
+}
+
+input[type="checkbox"] {
+      margin: 1.3rem .5rem .2rem 1rem;
+      position: relative;
+      width: 60px;
+      height: 30px;
+      appearance: none;
+      outline: none;
+      background: linear-gradient(90deg, #232526, #414345);
+      border-radius: 15px;
+      box-shadow: 0 2px 8px 0 rgba(0,255,231,0.08);
+      cursor: pointer;
+      overflow: visible;
+      transition: background 300ms;
+      border: 2px solid var(--main-color);
+}
+
+input:checked[type="checkbox"] {
+      background: linear-gradient(90deg, var(--main-color), var(--gradient-color-1));
+      border: 2px solid var(--gradient-color-1);
+}
+
+input[type="checkbox"]::before {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      top: 0;
+      left: 0;
+      transform: scale(1.1);
+      background: #fff;
+      box-shadow: 0px 2px 8px 0px rgba(0,255,231,0.18);
+      transition: 300ms;
+}
+
+input:checked[type="checkbox"]::before {
+      transform: translateX(100%) scale(1.1);
+      background: var(--main-color);
+      box-shadow: 0px 2px 12px 0px rgba(255,0,204,0.18);
+}
